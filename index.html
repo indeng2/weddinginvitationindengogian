@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <style>
+        /* [CSS TAMBAHAN UNTUK OVERLAY] */
+        #overlay-pembuka {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center;
+            background-color: #580c0c; color: #fff; text-align: center;
+        }
+        
+        /* [LANJUTKAN CSS ANDA YANG LAMA...] */
+        .main-container { width: 100%; max-width: 500px; margin: 0 auto; background-color: #580c0c; position: relative; }
+    </style>
+</head>
+<body>
+
+    <div id="overlay-pembuka">
+        <h1>The Wedding of
+            Ogian & Indeng</h1>
+        <button onclick="bukaUndangan()" style="padding: 15px 40px; margin-top:20px; cursor: pointer; background: #d4af37; border: none; border-radius: 30px; font-weight: bold;">
+            Buka Undangan
+        </button>
+    </div>
+
+    <audio id="musik-undangan" loop>
+        <source src="wedding-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function bukaUndangan() {
+            var overlay = document.getElementById("overlay-pembuka");
+            var musik = document.getElementById("musik-undangan");
+            musik.play();
+            overlay.style.transition = "opacity 0.8s ease";
+            overlay.style.opacity = "0";
+            setTimeout(() => { overlay.style.display = "none"; }, 800);
+        }
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <style>
+        /* ======================================================= */
+        /* RESET SYSTEM                                             */
+        /* ======================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+
+        /* Pembatas Layar HP */
+        .main-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #580c0c;
+            position: relative;
+        }
+        
+        /* ======================================================= */
+        /* SECTION 1: VIDEO OPENING                                */
+        /* ======================================================= */
+        .video-opening-section {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .video-opening-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ======================================================= */
+        /* SECTION 2 & 3: HALAMAN TUMPUKAN                        */
+        /* ======================================================= */
+        .mempelai-one-page, .halaman-berikutnya-section {
+            width: 100%;
+            position: relative; /* Wadah utama sebagai jangkar tumpukan */
+            display: block;
+            background-color: #580c0c;
+        }
+
+        /* Gambar sebagai BACKGROUND dasar halaman */
+        .gambar-background-a, .gambar-halaman-lain {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gambar sebagai TEKS yang menempel tepat di atas background */
+        .gambar-teks-biss {
+            position: absolute !important;
+            left: 0 !important;
+            bottom: 0 !important; /* Mengunci teks mepet dari bawah halaman agar presisi */
+            width: 100% !important;
+            height: auto !important;
+            z-index: 2; /* Naik ke atas menimpa background marun */
+            
+            /* Efek Bayangan Lembut pada Teks */
+            filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.6)) !important;
+            
+            /* SETELAN AWAL ANIMASI: Sembunyi halus */
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            
+            /* Durasi efek timbul (1.2 detik halus) */
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="video-opening-section">
+            <video autoplay loop muted playsinline>
+                <source src="Assest/Opening.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="mempelai-one-page">
+            <img src="Assest/A.png"> alt="Background Utama" class="gambar-background-a">
+            <img src="Assest/Biss.png"> alt="Teks Konten" class="gambar-teks-biss">
+        </div>
+
+        <div class="halaman-berikutnya-section">
+            <img src="Assest/o.png"> alt="Halaman Akad dan Lokasi" class="gambar-halaman-lain">
+            <img src="Assest/CO.png"> alt="Teks Konten" class="gambar-teks-biss">
+        </div>
+
+        <div class="mempelai-one-page">
+            <img src="Assest/i.png"> alt="Background Utama" class="gambar-background-a">
+            <img src="Assest/CE.png"> alt="Teks Konten" class="gambar-teks-biss">
+        </div>
+
+        <div class="mempelai-one-page">
+            <img src="Assest/tks.png"> alt="Background Utama" class="gambar-background-a">
+            <img src="Assest/Akad.png"> alt="Teks Konten" class="gambar-teks-biss">
+        </div>
+
+        <div class="mempelai-one-page">
+            <img src="Assest/tks.png"> alt="Background Utama" class="gambar-background-a">
+            <img src="Assest/Thkst.png"> alt="Teks Konten" class="gambar-teks-biss">
+        </div>
+
+    </div>
+
+    <script>
+        (function() {
+            function inisialisasiAnimasi() {
+                // Mengambil semua elemen teks menggunakan class, bukan ID
+                var daftarTeks = document.querySelectorAll('.gambar-teks-biss');
+                if (daftarTeks.length === 0) return;
+
+                function cekScroll() {
+                    var ukuranLayar = window.innerHeight / 1.15; // Jarak trigger sensitivitas layar
+
+                    // Lakukan perulangan untuk mengecek posisi setiap teks secara mandiri
+                    daftarTeks.forEach(function(teks) {
+                        var posisiTeks = teks.getBoundingClientRect().top;
+
+                        if (posisiTeks < ukuranLayar) {
+                            // KETIKA ELEMEN MASUK LAYAR: Muncul dan memantul naik
+                            teks.style.opacity = "1";
+                            teks.style.transform = "translateY(0) scale(1)";
+                        } else {
+                            // KETIKA DI-SCROLL KE ATAS: Sembunyi kembali
+                            teks.style.opacity = "0";
+                            teks.style.transform = "translateY(30px) scale(0.98)";
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', cekScroll);
+                cekScroll(); // Jalankan sekali di awal load halaman
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", inisialisasiAnimasi);
+            } else {
+                inisialisasiAnimasi();
+            }
+        })();
+    </script>
+
+</body>
+</html>
+
+<div class="fitur-container" style="padding: 30px 20px; text-align: center; color: #fff; font-family: sans-serif; background-color: #580c0c;">
+    <h2 class="fitur-title" style="font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase;">
+        Save The Date
+    </h2>
+    
+    <div class="countdown-box" style="display: flex !important; justify-content: center !important; gap: 15px !important; margin-bottom: 20px !important;">
+        <div class="countdown-item" style="background: rgba(0, 0, 0, 0.4); padding: 10px 15px; border-radius: 8px; min-width: 70px; border: 1px solid rgba(255, 255, 255, 0.2);">
+            <span id="hari" style="display: block; font-size: 1.8rem; font-weight: bold;">00</span>
+            <span style="font-size: 0.8rem; opacity: 0.7;">Hari</span>
+        </div>
+        <div class="countdown-item" style="background: rgba(0, 0, 0, 0.4); padding: 10px 15px; border-radius: 8px; min-width: 70px; border: 1px solid rgba(255, 255, 255, 0.2);">
+            <span id="jam" style="display: block; font-size: 1.8rem; font-weight: bold;">00</span>
+            <span style="font-size: 0.8rem; opacity: 0.7;">Jam</span>
+        </div>
+        <div class="countdown-item" style="background: rgba(0, 0, 0, 0.4); padding: 10px 15px; border-radius: 8px; min-width: 70px; border: 1px solid rgba(255, 255, 255, 0.2);">
+            <span id="menit" style="display: block; font-size: 1.8rem; font-weight: bold;">00</span>
+            <span style="font-size: 0.8rem; opacity: 0.7;">Menit</span>
+        </div>
+        <div class="countdown-item" style="background: rgba(0, 0, 0, 0.4); padding: 10px 15px; border-radius: 8px; min-width: 70px; border: 1px solid rgba(255, 255, 255, 0.2);">
+            <span id="detik" style="display: block; font-size: 1.8rem; font-weight: bold;">00</span>
+            <span style="font-size: 0.8rem; opacity: 0.7;">Detik</span>
+        </div>
+    </div>
+
+    <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; color: #d4af37;">
+        Senin, 06 Juli 2026
+    </p>
+    <p style="font-size: 0.95rem; margin-bottom: 15px; opacity: 0.9;">
+        Pukul 14.00 WIB s/d Selesai
+    </p>
+    <p style="font-size: 0.85rem; margin-bottom: 15px; opacity: 0.8; padding: 0 10px; line-height: 1.4;">
+        Jl. Sungai Penuh - Padang, Rt.01, No.16, Lubuk Nagodang, Siulak, Kerinci, Jambi
+    </p>
+
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Menggunakan format yang lebih ramah lintas browser (Safari/iOS)
+        var targetTanggal = new Date("July 06, 2026 14:00:00 GMT+0700").getTime();
+        
+        function jalankanCountdown() {
+            var elHari = document.getElementById("hari");
+            var elJam = document.getElementById("jam");
+            var elMenit = document.getElementById("menit");
+            var elDetik = document.getElementById("detik");
+
+            // Keamanan tambahan: pastikan elemen ada
+            if (!elHari || !elJam || !elMenit || !elDetik) return;
+
+            var waktuSekarang = new Date().getTime();
+            var selisihWaktu = targetTanggal - waktuSekarang;
+
+            // Jika error parsing tanggal, selisihWaktu bisa menjadi NaN. Kita pastikan dia valid.
+            if (!isNaN(selisihWaktu) && selisihWaktu > 0) {
+                var hitungHari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+                var hitungJam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var hitungMenit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+                var hitungDetik = Math.floor((selisihWaktu % (1000 * 60)) / 1000);
+
+                elHari.innerText = hitungHari < 10 ? "0" + hitungHari : hitungHari;
+                elJam.innerText = hitungJam < 10 ? "0" + hitungJam : hitungJam;
+                elMenit.innerText = hitungMenit < 10 ? "0" + hitungMenit : hitungMenit;
+                elDetik.innerText = hitungDetik < 10 ? "0" + hitungDetik : hitungDetik;
+            } else {
+                elHari.innerText = "00";
+                elJam.innerText = "00";
+                elMenit.innerText = "00";
+                elDetik.innerText = "00";
+            }
+        }
+
+        // Eksekusi sekarang, lalu ulangi tiap detik
+        jalankanCountdown();
+        setInterval(jalankanCountdown, 1000);
+    });
+</script>
+
+    <!-- 4. FORM UCAPAN & DOA RETU -->
+    <!DOCTYPE html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS yang Anda buat */
+        .ucapan-container { padding: 20px; text-align: center; max-width: 400px; margin: 20px auto; background-color: #fdfdfd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .form-input { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .btn-kirim { background-color: #580c0c; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+        .btn-kirim:hover { background-color: #7a1515; }
+        #daftar-ucapan { margin-top: 20px; text-align: left; }
+        .pesan-box { border-bottom: 1px solid #eee; padding: 10px 0; font-family: sans-serif; }
+    </style>
+
+    <div class="ucapan-container">
+        <h2>Ucapan & Doa</h2>
+
+        <label for="namaTamu" style="display: none;">Nama Anda</label>
+        <input type="text" id="namaTamu" class="form-input" placeholder="Nama Anda" required>
+
+        <label for="pesanTamu" style="display: none;">Tulis doa</label>
+        <textarea id="pesanTamu" class="form-input" placeholder="Tulis doa..." required></textarea>
+
+    <button class="btn-kirim" onclick="kirimPesan()">Kirim Pesan</button>
+    
+    <div id="daftar-ucapan"></div>
+</div>
+
+    <script>
+        function kirimPesan() {
+            const nama = document.getElementById('namaTamu').value;
+            const pesan = document.getElementById('pesanTamu').value;
+            
+            if (nama !== "" && pesan !== "") {
+                const daftar = document.getElementById('daftar-ucapan');
+                const baru = document.createElement('div');
+                baru.className = 'pesan-box';
+                baru.innerHTML = `<strong>${nama}</strong><br>${pesan}`;
+                daftar.prepend(baru);
+                
+                // Bersihkan
+                document.getElementById('namaTamu').value = '';
+                document.getElementById('pesanTamu').value = '';
+            } else {
+                alert('Mohon isi nama dan pesan');
+            }
+        }
+    </script>
+
+    <!-- 3. LOKASI (GOOGLE MAPS) -->
+    <!DOCTYPE html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        function kirimPesan() {
+            const nama = document.getElementById('namaTamu').value;
+            const pesan = document.getElementById('pesanTamu').value;
+            if (nama && pesan) {
+                const daftar = document.getElementById('daftar-ucapan');
+                const baru = document.createElement('div');
+                baru.className = 'pesan-box';
+                baru.innerHTML = `<strong>${nama}</strong><br>${pesan}`;
+                daftar.prepend(baru);
+                document.getElementById('namaTamu').value = '';
+                document.getElementById('pesanTamu').value = '';
+            } else {
+                alert('Mohon isi nama dan pesan');
+            }
+        }
+    </script>
+</body>
+</html>
